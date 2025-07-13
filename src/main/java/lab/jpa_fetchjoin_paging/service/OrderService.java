@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,10 +25,11 @@ public class OrderService {
         // 연관 엔티티 fetch join (in쿼리)
         List<OrderEntity> orders = orderRepository.findAllWithItemsByIds(pageIds);
 
-        // 카운트 쿼리
-        Long total = orderRepository.countAll();
-
-        return new PageImpl<>(orders, pageable, total);
+        return PageableExecutionUtils.getPage(
+            orders,
+            pageable,
+            () -> orderRepository.countAll()
+        );
     }
 
     public Page<OrderEntity> getPagedOrdersBadCase(Pageable pageable) {
