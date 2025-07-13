@@ -3,7 +3,7 @@ package lab.jpa_fetchjoin_paging.service;
 import jakarta.transaction.Transactional;
 import lab.jpa_fetchjoin_paging.domain.entity.OrderEntity;
 import lab.jpa_fetchjoin_paging.domain.entity.OrderItemEntity;
-import lab.jpa_fetchjoin_paging.domain.repository.OrderRepository;
+import lab.jpa_fetchjoin_paging.domain.repository.order.OrderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

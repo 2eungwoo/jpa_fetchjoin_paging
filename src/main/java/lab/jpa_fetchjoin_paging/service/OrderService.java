@@ -1,8 +1,7 @@
 package lab.jpa_fetchjoin_paging.service;
 
 import lab.jpa_fetchjoin_paging.domain.entity.OrderEntity;
-import lab.jpa_fetchjoin_paging.domain.repository.OrderItemRepository;
-import lab.jpa_fetchjoin_paging.domain.repository.OrderRepository;
+import lab.jpa_fetchjoin_paging.domain.repository.order.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -10,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import lab.jpa_fetchjoin_paging.domain.entity.OrderItemEntity;
 
 @Service
 @RequiredArgsConstructor
