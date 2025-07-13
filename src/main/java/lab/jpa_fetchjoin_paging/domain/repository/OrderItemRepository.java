@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface OrderItemRepository extends JpaRepository<OrderItemEntity, Long> {
 
@@ -16,6 +14,5 @@ public interface OrderItemRepository extends JpaRepository<OrderItemEntity, Long
             value = "SELECT oi FROM OrderItemEntity oi JOIN FETCH oi.order",
             countQuery = "SELECT COUNT(oi) FROM OrderItemEntity oi"
     )
-    List<OrderItemEntity> findAllWithOrder(Pageable pageable);
-    // Page<OrderItemEntity> findAllWithOrder(Pageable pageable);
+    Page<OrderItemEntity> findAllWithOrder(Pageable pageable);
 }

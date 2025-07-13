@@ -18,12 +18,6 @@ public class OrderItemService {
     private final OrderItemRepository orderItemRepository;
 
     public Page<OrderItemEntity> getPagedOrderItems(Pageable pageable) {
-        List<OrderItemEntity> orderItems = orderItemRepository.findAllWithOrder(pageable);
-        // Page<OrderItemEntity> orderItems = orderItemRepository.findAllWithOrder(pageable);
-
-        long total = orderItemRepository.count(); // JpaRepository.count()
-
-        return new PageImpl<>(orderItems, pageable, total);
-        // return new PageImpl<>(orderItems.getContent(), pageable, total);
+        return orderItemRepository.findAllWithOrder(pageable);
     }
 }

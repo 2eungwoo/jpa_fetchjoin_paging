@@ -27,5 +27,5 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
     List<OrderEntity> findAllWithItemsByIds(List<Long> ids);
 
     @Query("SELECT COUNT(o) FROM OrderEntity o")
-    long countAll();
+    Long countAll();
 }

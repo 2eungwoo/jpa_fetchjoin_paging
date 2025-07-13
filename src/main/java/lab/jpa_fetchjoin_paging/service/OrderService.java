@@ -27,7 +27,7 @@ public class OrderService {
         List<OrderEntity> orders = orderRepository.findAllWithItemsByIds(pageIds);
 
         // 카운트 쿼리
-        long total = orderRepository.countAll();
+        Long total = orderRepository.countAll();
 
         return new PageImpl<>(orders, pageable, total);
     }
